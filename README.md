@@ -60,16 +60,18 @@ git clone -b master https://github.com/martin-murin/4TopYukawaSensitivity.git
 ## Run
 ### Run framework locally
 Run the framework with `./run_macro.sh` which sets up the environment and launches the ROOT macro `framework/MacroMain.C`
-    - Options for sample set are listed in `framework/LocalTools.h`. The paths to the different sample sets are defined in `framework/TChainsMaker.cxx`
-    - Options for Yukawa set are `alpha` and `kappa` for sample sets with varying CP-mixing angle or varying coupling strength, respectively
+
+- Options for sample set are listed in `framework/LocalTools.h`. The paths to the different sample sets are defined in `framework/TChainsMaker.cxx`
+- Options for Yukawa set are `alpha` and `kappa` for sample sets with varying CP-mixing angle or varying coupling strength, respectively
 
 ### Submit to Condor
 Submit the job to Condor simply as `condor_submit run_macro.sub` (on LXPLUS only)
 
 ### Run XGBoost classifier locally
 Run XGBoost classifier either by
-    - directly running the python script `python xgboost/classifierXGBoost.py --ptcut <ptcut> --nestim <nestim> --depth <depth> --rate <rate> --cols <cols> --alp <alp> --gam <gam> --lam <lam>`
-    - using the shell script `source xgboost/classifierXGBoost.sh <ptcut> <nestim> <depth> <rate> <cols> <alp> <gam> <lam>`
+
+- directly running the python script `python xgboost/classifierXGBoost.py --ptcut <ptcut> --nestim <nestim> --depth <depth> --rate <rate> --cols <cols> --alp <alp> --gam <gam> --lam <lam>`.
+- using the shell script `source xgboost/classifierXGBoost.sh <ptcut> <nestim> <depth> <rate> <cols> <alp> <gam> <lam>`.
 
 ### Submit XGBoost jobs to Condor
 Use `./submit_xgboost.sh` to submit jobs to Condor. This allows submission of mutliple jobs in parallel, one for each set of hyperparameters.
