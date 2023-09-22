@@ -1,0 +1,17 @@
+executable  =   run_macro.sh
+output      =   condor/fwk/output/job_$(ProcId).out
+error       =   condor/fwk/error/job_$(ProcId).err
+log         =   condor/fwk/log/job_$(ProcId).log
+
+requirements    = (OpSysAndVer =?= "CentOS7")
+request_cpus    = 1
+request_gpus    = 1
++JobFlavour     = next_week
++MaxRuntime     = 12000
+
+should_transfer_files   = YES
+transfer_input_files    = framework/run_macro.C,framework/MacroMain.C
+when_to_transfer_output = ON_EXIT
+
+nJobs       = 1
+queue $(nJobs)
